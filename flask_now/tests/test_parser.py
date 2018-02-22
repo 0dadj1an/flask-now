@@ -3,4 +3,4 @@ import flask_now
 
 class TestValidatePackages(TestCase):
     def test_validation(self):
-        # TODO: Test validation method
+        # TODO: Test package validation
