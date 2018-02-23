@@ -94,7 +94,7 @@ class Writer(object):
     def create_style(self, filename_css, filename_js):
         # Create static/css
         os.makedirs(os.path.dirname(filename_css), exist_ok=True)
-        with open(filename, "w+") as file:
+        with open(filename_css, "w+") as file:
             try:
                 file.write('\n')
             except:
@@ -102,7 +102,7 @@ class Writer(object):
 
         # Create static/js
         os.makedirs(os.path.dirname(filename_js), exist_ok=True)
-        with open(filename, "w+") as file:
+        with open(filename_js, "w+") as file:
             try:
                 file.write('\n')
             except:
