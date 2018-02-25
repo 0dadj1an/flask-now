@@ -1,5 +1,4 @@
 import os
-import json
 import base64
 
 
@@ -94,19 +93,12 @@ class Writer(object):
     def create_style(self, filename_css, filename_js):
         # Create static/css
         os.makedirs(os.path.dirname(filename_css), exist_ok=True)
-        with open(filename_css, "w+") as file:
-            try:
-                file.write('\n')
-            except:
-                raise WriterException("Error while creating static/css")
-
-        # Create static/js
         os.makedirs(os.path.dirname(filename_js), exist_ok=True)
-        with open(filename_js, "w+") as file:
-            try:
-                file.write('\n')
-            except:
-                raise WriterException("Error while creating static/js")
+        try:
+            open(filename_css, "w+").close()
+            open(filename_js, "w+").close()
+        except Exception as e:
+            raise WriterException(e)
 
     def create_templates(self, filename):
         # Create a simple template

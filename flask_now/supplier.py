@@ -13,15 +13,14 @@ class Supplier(object):
                 for package in self.__package_list:
                     if package == "frozen":
                         file.write("frozen-flask \n")
+                    elif package == "flask":
+                        file.write("flask\n")
                     else:
                         file.write("flask-" + package + "\n")
-
-            self.__package_list.append("flask")
             self.__process_result = True
-        except:
+        except Exception as e:
             self.__process_result = False
-            raise ParserException(
-                "Cannot create or open: requirements.txt file")
+            print(e)
 
     def install_requirements(self):
         if len(self.__package_list) > 0:

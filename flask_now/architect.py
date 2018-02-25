@@ -6,13 +6,6 @@ class Architect(object):
         self.__architecture = architecture
         self.__package_list = package_list
 
-    def __identify(self):
-        if self.__architecture.lower() == "mvc":
-            self.__create_mvc_architecture()
-
-        else:
-            self.__create_simple_app()
-
     def __create_mvc_architecture(self):
         self.__create_mvc_app()
 
@@ -32,8 +25,11 @@ class Architect(object):
         writer.create_model_py(filename="project/models.py")
         writer.create_style(filename_css="project/static/css/style.css",
                             filename_js="project/static/js/script.js")
-        self.__create_templates(filename="project/templates/index.html")
+        writer.create_templates(filename="project/templates/index.html")
         writer.create_build_now(self.__architecture, self.__package_list)
 
     def build(self):
-        self.__identify()
+        if self.__architecture.lower() == "mvc":
+            self.__create_mvc_architecture()
+        else:
+            self.__create_simple_app()
