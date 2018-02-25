@@ -1,8 +1,8 @@
-<p align="center"> 
+<p align="center">
 <img src="../master/images/logo.png">
 </p>
 
-<p align="center">Flask-Now is a Flask Application Generator/Build-Tool runs via CLI</p> 
+<p align="center">Flask-Now is a Flask Application Generator/Build-Tool runs via CLI</p>
 
 [![Documentation Status](https://readthedocs.org/projects/flask-now/badge/?version=latest)](http://flask-now.readthedocs.io/en/latest/?badge=latest)
 [![Code Climate](https://codeclimate.com/github/ozanonurtek/flask-now/badges/gpa.svg)](https://codeclimate.com/github/ozanonurtek/flask-now)
@@ -83,14 +83,14 @@ source venv/bin/activate
 ```
 - **Important part starts**, we will run flask-now with command line arguments, let's assume that we need Flask-WTF and Flask-Bootstrap in MVC patern:
 ```
-flask-now -mvc wtf bootstrap
+flask-now mvc wtf bootstrap
 ```
 If you run the code above, Flask-Now will do the all job for you.
 
 
-- If you want to create a *simple structure* that I mentioned above, don't pass architecture pattern(```-mvc```) arguments to flask-now. Example:
+- If you want to create a *simple structure* that I mentioned above, pass "simple" argument to flask-now. Example:
 ```
-flask-now wtf bootstrap
+flask-now simple wtf bootstrap
 ```
 - As you can understand from the example we drop Flask keyword while installing flask extensions to our project. For example:
 
@@ -102,7 +102,7 @@ Flask-Rest-Jsonapi -> rest-jsonapi
 
 Frozen-Flask -> frozen
 ```
-flask-now -mvc frozen rest-jsonapi wtf bootstrap admin
+flask-now mvc frozen rest-jsonapi wtf bootstrap admin
 ```
 And that's it. Your simple flask app is ready. Run it!
 ```

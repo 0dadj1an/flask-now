@@ -45,7 +45,7 @@ Now go to your project folder, create your virtualenvironment, activate it and b
 
 .. code-block:: bash
 
-  flask-now -mvc wtf bootstrap sqlalchemy
+  flask-now mvc wtf bootstrap sqlalchemy
 
 That's it, your project is ready in a minute with desired flask extensions and with following mvc like architectural pattern,
 
@@ -79,13 +79,13 @@ Flask-Now accepts parameters within following structure:
 
 .. code-block:: bash
 
-  flask-now -<architectural-pattern> <extension_1> <extension_2> ... <extension_n>
+  flask-now <architectural-pattern> <extension_1> <extension_2> ... <extension_n>
 
-Which means that you can pass one parameter only as :code:`-<architectural-pattern>`. If you pass more than one architectural-pattern parameters like in the following example:
+Which means that you can pass one parameter only as :code:`<architectural-pattern>`. If you pass more than one architectural-pattern parameters like in the following example:
 
 .. code-block:: bash
 
-  flask-now -mvc -mvvm -simple
+  flask-now mvc mvvm simple
 
 Flask-Now will use the latest parameter(in this case it will use :code:`simple`) that you passed as architectural-pattern.
 
@@ -124,9 +124,9 @@ Running:
 
 .. code-block:: bash
 
-  flask-now -simple
+  flask-now simple
 
-With :code:`-simple` parameter, Flask-Now will generate very simple Flask Application with in following structure:
+With :code:`simple` parameter, Flask-Now will generate very simple Flask Application with in following structure:
 
 .. code-block:: python
 
@@ -146,7 +146,7 @@ is the exact same thing with:
 
 .. code-block:: bash
 
-  flask-now -simple
+  flask-now simple
 
 mvc
 ------------
@@ -155,9 +155,9 @@ Running:
 
 .. code-block:: bash
 
-  flask-now -mvc
+  flask-now mvc
 
-With :code:`-mvc` parameter, Flask-Now will generate very similar Flask Application which is suggested in `official tutorial`_.
+With :code:`mvc` parameter, Flask-Now will generate very similar Flask Application which is suggested in `official tutorial`_.
 
 .. _official tutorial: http://flask.pocoo.org/docs/0.12/tutorial/folders/
 
@@ -213,7 +213,7 @@ So you just need to drop **Flask-** or **-Flask** keyword from the name of the e
 
 .. code-block:: bash
 
-  flask-now -mvc frozen wtf static-compress sqlalchemy
+  flask-now mvc frozen wtf static-compress sqlalchemy
 
 That's it, Flask-Now will build your Flask Application with desired extensions and mvc like pattern! :code:`requirements.txt, config.py` is also at your services!
 
@@ -244,7 +244,7 @@ When Flask-Now generates :code:`config.py`, it uses :code:`os.urandom()` to gene
 run.py
 ----------
 
-If it is built with :code:`-simple` parameter, content of :code:`run.py` as follows:
+If it is built with :code:`simple` parameter, content of :code:`run.py` as follows:
 
 .. code-block:: Python
 
@@ -261,7 +261,7 @@ If it is built with :code:`-simple` parameter, content of :code:`run.py` as foll
   if __name__ == "__main__":
     app.run()
 
-if it is built with :code:`-mvc` parameter, content of :code:`run.py` as follows:
+if it is built with :code:`mvc` parameter, content of :code:`run.py` as follows:
 
 .. code-block:: Python
 
@@ -278,7 +278,7 @@ Flask-Now uses :code:`pip freeze` feature to create latest version of :code:`req
 
 .. code-block:: bash
 
-  flask-now -simple
+  flask-now simple
 
 Flask-Now will generate following requirements.txt for you:
 
@@ -388,6 +388,6 @@ Assume that we want to start a new Flask Application called :code:`flaskr` in cu
 
 .. code-block:: bash
 
-  pip install -mvc -wtf -sqlalchemy -login
+  pip install mvc -wtf -sqlalchemy -login
 
 That's it, you are ready to develop your Flask Application!
