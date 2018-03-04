@@ -31,7 +31,7 @@ class Parser(object):
                                      help='Architectural type of your project: '
                                           'http://flask-now.readthedocs.io/en/latest/#supported-architectural-patterns')
         argument_parser.add_argument(
-            "extensions", nargs="?", default=None, choices=self.__valid_packages, help="Desired extensions:")
+            "extensions", nargs="*", choices=self.__valid_packages, help="Desired extensions:")
         arguments = argument_parser.parse_args()
         self.__architecture = arguments.architecture[0]
         if arguments.extensions is None:
