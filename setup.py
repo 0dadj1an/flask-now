@@ -25,7 +25,7 @@ setup(name='flask-now',
       url='http://github.com/ozanonurtek/flask-now',
       author='Ozan Onur Tek',
       author_email='ozanonurtek@gmail.com',
-      packages=['flask_now'],
+      packages=['flask_now', 'flask_now.extensions'],
       entry_points={'console_scripts': ['flask-now = flask_now.now:main']},
       include_package_data=True,
       zip_safe=False)

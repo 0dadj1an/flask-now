@@ -40,7 +40,8 @@ class Supplier(object):
                     print(
                         "An error occured while freezing requirements\nError:\n", process.stdout)
                     print(
-                        "You can manually freeze installed requirements by using following command: 'pip freeze > requirements.txt'")
+                        "You can manually freeze installed requirements"
+                        "by using following command: 'pip freeze > requirements.txt'")
             else:
                 self.__process_result = False
                 print(

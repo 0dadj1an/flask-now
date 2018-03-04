@@ -1,4 +1,5 @@
-from .writer import Writer
+from .extensions.now import NowMvcExtension, NowSimpleExtension
+from .extensions.flask import FlaskMvcExtension, FlaskSimpleExtension
 
 
 class Architect(object):
@@ -6,30 +7,53 @@ class Architect(object):
         self.__architecture = architecture
         self.__package_list = package_list
 
-    def __create_mvc_architecture(self):
-        self.__create_mvc_app()
+    @staticmethod
+    def create_mvc_app():
+        now_mvc = NowMvcExtension()
+        flask_mvc = FlaskMvcExtension()
 
-    def __create_simple_app(self):
-        writer = Writer()
-        writer.create_config_file_simple(filename="config.py")
-        writer.create_simple_run()
-        writer.create_build_now(self.__architecture, self.__package_list)
+        # Now extension creates config
+        now_mvc.config()
 
-    def __create_mvc_app(self):
-        # Create config file
-        writer = Writer()
-        writer.create_config_file(filename="project/config.py")
-        writer.create_run_py(filename="run.py")
-        writer.create_init_py(filename="project/__init__.py")
-        writer.create_contoller_py(filename="project/controller.py")
-        writer.create_model_py(filename="project/models.py")
-        writer.create_style(filename_css="project/static/css/style.css",
-                            filename_js="project/static/js/script.js")
-        writer.create_templates(filename="project/templates/index.html")
-        writer.create_build_now(self.__architecture, self.__package_list)
+        # Flask creates run
+        flask_mvc.run_imports()
+        flask_mvc.run_variables()
+        flask_mvc.run_methods()
+
+        # Flask creates models
+        flask_mvc.model_imports()
+        flask_mvc.model_variables()
+        flask_mvc.model_methods()
+
+        # Flask creates controller
+        flask_mvc.controller_imports()
+        flask_mvc.controller_variables()
+        flask_mvc.controller_methods()
+
+        # Flask creates statics
+        flask_mvc.default_css()
+        flask_mvc.default_js()
+
+        # Flask creates templates
+        flask_mvc.index_html()
+
+        # Flask creates __init__
+        flask_mvc.init_imports()
+        flask_mvc.init_variables()
+        flask_mvc.init_methods()
+
+    @staticmethod
+    def create_simple_app():
+        now_simple = NowSimpleExtension()
+        now_simple.config()
+
+        flask_simple = FlaskSimpleExtension()
+        flask_simple.run_imports()
+        flask_simple.run_variables()
+        flask_simple.run_methods()
 
     def build(self):
         if self.__architecture.lower() == "mvc":
-            self.__create_mvc_architecture()
+            self.create_mvc_app()
         else:
-            self.__create_simple_app()
+            self.create_simple_app()
